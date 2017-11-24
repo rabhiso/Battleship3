@@ -12,23 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections;
 
 namespace Battleship2
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Button[,] userButtons = new Button[10, 10];
+
+        // Create ship objects
+        Ship a = new Ship(2, false);
+        Ship b = new Ship(3, false);
+        Ship c = new Ship(4, false);
+        Ship d = new Ship(5, true);
+        Ship e = new Ship(6, true);
+        List<Ship> ships = new List<Ship>();
+
+        private Boolean gameStarted = false;
 
         public MainWindow()
         {
             InitializeComponent();
             initialSetUps();
+            userSetUps();
         }
-
-
 
         private void initialSetUps()
         {
@@ -120,10 +127,7 @@ namespace Battleship2
                         ((Button)computerGrid.Children[index + j]).Content = shipName;
                     }
                 }
-
             }
-
-
         }// End RandomComputerSetup
 
         private void userSetUps()
@@ -142,21 +146,128 @@ namespace Battleship2
                 for (int j = 0; j < 10; j++)
                 {
                     userButtons[i, j] = (Button)userGrid.Children[numShips];
-
                     numShips++;
                 }
             }
 
-            // Create ship objects
-            Ship a = new Ship(2, false);
-            Ship b = new Ship(3, false);
-            Ship c = new Ship(4, false);
-            Ship d = new Ship(5, true);
-            Ship e = new Ship(6, true);
-
-
+            ships.Add(a);
+            ships.Add(b);
+            ships.Add(c);
+            ships.Add(d);
+            ships.Add(e);
 
         }// End userSetUps method
+
+        private void startBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void BtnUser_Click(object sender, RoutedEventArgs e)
+        {
+            Button btnClicked = (Button)sender;
+            if (!(gameStarted))
+            {
+                PlaceShip(ships[0], btnClicked);
+                ships.RemoveAt(0);     
+                if (ships.)
+            } // end if (!gameStarted)
+        }// end BtnUser_Click event handler
+
+        private void PlaceShip(Ship ship, Button btnClicked)
+        {
+            // Check if this button is "free" (no content)
+            if ( !(btnClicked.Content.Equals("noShip")) )
+            {
+                MessageBox.Show("The ship does not fit there!");
+            }
+
+            // Check the position of the button (returns the i and j position of the button in the 2D array)
+            int i = 0;
+            int j = 0;
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            for (int index1 = 0; index1 < 10; index1++)
+            {
+                for (int index2 = 0; index2 < 10; index2++)
+                {
+                    if (userButtons[index1, index2].Name.Equals(btnClicked.Name))
+                    {
+                        i = index1;
+                        j = index2;
+                    }
+                }
+            }
+
+            // MessageBox.Show("i is: " + i.ToString() + "j is: " +  j.ToString() + "btnclickd name: " + btnClicked.Name + "userbutton at 55" + userButtons[5, 5].Name);
+
+            // Check orientation of the ship
+            Boolean isHorizontal = ship.GetDirection();
+            Boolean canPlace = true;
+           
+            if (isHorizontal)
+            {
+                //Check if there is enough space on the graph
+                if ( (j + ship.GetSize() - 1) <= 9)
+                {
+                    // Check if following buttons are available
+                    for (int index = j + 1; index <= j + ship.GetSize() - 1; index++)
+                    {
+                        if ( !(userButtons[i, index].Content.Equals("noShip")) )
+                        {
+                            canPlace = false;
+                            break;
+                        }
+                    }
+
+                    if (canPlace)
+                    {
+                        for (int index = j; index <= j + ship.GetSize() - 1; index++)
+                        {
+                            userButtons[i, index].Content = "d";
+                        }
+                    }
+
+                }// If enough space on graph
+                else
+                {
+                    MessageBox.Show("The ship does not fit there!");
+                }
+            }
+            else // IF vertical
+            {
+                //Check if there is enough space on the graph
+                if ((i + ship.GetSize() - 1) <= 9)
+                {
+                    // Check if following buttons are available
+                    for (int index = i + 1; index <= i + ship.GetSize() - 1; index++)
+                    {
+                        if (!(userButtons[index, j].Content.Equals("noShip")))
+                        {
+                            canPlace = false;
+                            break;
+                        }
+                    }
+
+                    if (canPlace)
+                    {
+                        for (int index = i; index <= i + ship.GetSize() - 1; index++)
+                        {
+                            userButtons[index, j].Content = "a";
+                        }
+                    }
+
+                }// If enough space on graph
+                else
+                {
+                    MessageBox.Show("The ship does not fit there!");
+                }
+            }
+        }// end PlaceShip method
+
+        private void BtnComp_Click(object sender, RoutedEventArgs e)
+        {
+            gameStarted = true;
+        }
     }// End MainWindow class
 
     public class Ship
