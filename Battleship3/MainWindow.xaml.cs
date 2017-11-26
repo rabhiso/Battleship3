@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,15 +21,36 @@ namespace Battleship2
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static MediaPlayer playMusic = new MediaPlayer();
         Button[,] userButtons = new Button[10, 10];
 
         public MainWindow()
         {
             InitializeComponent();
             initialSetUps();
+            PlayBackgroundMusic();
+            MoveTo(dolphinoimage, 200, 7);
         }
 
-
+       
+            public static void MoveTo(this Image target, double newX, double newY)
+            {
+                var top = Canvas.GetTop(target);
+                var left = Canvas.GetLeft(target);
+                TranslateTransform trans = new TranslateTransform(); //SHTO eta?
+                target.RenderTransform = trans;
+                DoubleAnimation anim1 = new DoubleAnimation(top, newY - top, TimeSpan.FromSeconds(10));
+                DoubleAnimation anim2 = new DoubleAnimation(left, newX - left, TimeSpan.FromSeconds(10));
+                trans.BeginAnimation(TranslateTransform.XProperty, anim1);
+                trans.BeginAnimation(TranslateTransform.YProperty, anim2);
+            }
+            public static void PlayBackgroundMusic()
+        { 
+            Uri backgroundMusic = new Uri("backgroundMusic.mp3", UriKind.Relative);
+            var player = new MediaPlayer();
+            player.Open(backgroundMusic);
+            player.Play();
+        }
 
         private void initialSetUps()
         {
@@ -157,6 +179,7 @@ namespace Battleship2
 
 
         }// End userSetUps method
+
     }// End MainWindow class
 
     public class Ship
@@ -179,5 +202,6 @@ namespace Battleship2
         {
             return this.isHorizontal;
         }
+        
     }// End Ship class
 }

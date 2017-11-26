@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Strategy.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Music.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -101,6 +103,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="ship-missed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="finalSea.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="backgroundMusic.mp3" />
+    <Resource Include="sea4.png" />
+    <Resource Include="dol.png" />
+    <Content Include="Heavenly_Music_Vanoss_Sound_Effect[Mp3Converter.net].mp3" />
+    <Content Include="Sad_Violin_-_MLG_Sound_Effects_HD[Mp3Converter.net].mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
