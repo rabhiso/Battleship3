@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Battleship3.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -54,20 +57,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GameWindow.xaml.cs">
+      <DependentUpon>GameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="startMenu.xaml.cs">
+      <DependentUpon>startMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Strategy.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="GameWindow.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Music.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="startMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -108,9 +117,13 @@
     <Resource Include="finalSea.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="actualStart.png" />
     <Content Include="backgroundMusic.mp3" />
+    <Resource Include="ship_clipper_T.png" />
+    <Resource Include="sea5.jpg" />
     <Resource Include="sea4.png" />
     <Resource Include="dol.png" />
+    <Resource Include="battleship_banner.png" />
     <Content Include="Heavenly_Music_Vanoss_Sound_Effect[Mp3Converter.net].mp3" />
     <Content Include="Sad_Violin_-_MLG_Sound_Effects_HD[Mp3Converter.net].mp3" />
   </ItemGroup>

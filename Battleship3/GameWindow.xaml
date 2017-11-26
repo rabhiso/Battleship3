@@ -1,14 +1,16 @@
-﻿<Window x:Class="Battleship2.MainWindow"
+﻿<Window x:Class="Battleship3.GameWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Battleship2"
+        xmlns:local="clr-namespace:Battleship3"
         mc:Ignorable="d"
         Title="Battleship" Height="550" Width="825">
-    <Grid>
+    <Grid Margin="0,0,2,6">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="791*"/>
+            <ColumnDefinition Width="546*"/>
+            <ColumnDefinition Width="42*"/>
+            <ColumnDefinition Width="203*"/>
             <ColumnDefinition Width="26*"/>
         </Grid.ColumnDefinitions>
 
@@ -168,7 +170,7 @@
             <Button Grid.Column="8" Grid.Row="9"/>
             <Button Grid.Column="9" Grid.Row="9"/>
         </Grid>
-        <Grid x:Name="userGrid" HorizontalAlignment="Left" Height="200" Margin="538,29,0,0" VerticalAlignment="Top" Width="200">
+        <Grid x:Name="userGrid" HorizontalAlignment="Left" Height="200" Margin="538,29,0,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20" />
                 <RowDefinition Height="20" />
@@ -295,7 +297,6 @@
             <Button Grid.Column="8" Grid.Row="9"/>
             <Button Grid.Column="9" Grid.Row="9"/>
         </Grid>
-        <Button x:Name="startBtn" Content="Start" HorizontalAlignment="Left" Margin="331,29,0,0" VerticalAlignment="Top" Width="110" RenderTransformOrigin="1.03,0.613" FontFamily="Comic Sans MS" Height="21"/>
         <Button x:Name="MinusBtn" Content="-" HorizontalAlignment="Left" Margin="318,84,0,0" VerticalAlignment="Top" Width="23" Height="21"/>
         <Button x:Name="PlusBtn" Content="+" HorizontalAlignment="Left" Margin="417,84,0,0" VerticalAlignment="Top" Width="24" Height="21" RenderTransformOrigin="1.599,0.083" FontFamily="Comic Sans MS"/>
         <Label Content="Level" HorizontalAlignment="Left" Margin="361,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.3,0.417" FontFamily="Comic Sans MS" />
@@ -306,10 +307,10 @@
         <Button x:Name="Time_minus_Btn" Content="-" HorizontalAlignment="Left" Margin="318,157,0,0" VerticalAlignment="Top" Width="23" Height="21"/>
         <Button x:Name="Save_Btn" Content="Save" HorizontalAlignment="Left" Margin="266,209,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS"/>
         <Button x:Name="Load_Btn" Content="Load" HorizontalAlignment="Left" Margin="417,209,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS"/>
-        <Image x:Name="ImgShip" Margin="-71,-224,814.536,693" Source="lego-square.png" Stretch="Fill" RenderTransformOrigin="-3.291,-0.265"/>
-        <Image x:Name="ImgShipHit" Margin="-155,-224,878.536,698" Source="ship-hit.png" Stretch="Fill"/>
-        <Image x:Name="ImgShipMiss" Margin="-238,-224,961.536,690" Source="ship-missed.png" Stretch="Fill"/>
-          
+        <Image x:Name="ImgShip" Margin="-71,-224,570,693" Source="lego-square.png" Stretch="Fill" RenderTransformOrigin="-3.291,-0.265"/>
+        <Image x:Name="ImgShipHit" Margin="-155,-224,634,698" Source="ship-hit.png" Stretch="Fill"/>
+        <Image x:Name="ImgShipMiss" Margin="-238,-224,717,690" Source="ship-missed.png" Stretch="Fill"/>
+
 
     </Grid>
 

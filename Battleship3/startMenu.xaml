@@ -1,0 +1,50 @@
+﻿<Window x:Name="startWindow" x:Class="Battleship3.startMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Battleship3"
+        mc:Ignorable="d"
+        Title="startMenu" Height="300" Width="300">
+    <Grid Margin="0,0,-8,-7">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="12*"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="sea5.jpg" 
+                    Stretch="Fill" TileMode="FlipXY"
+                    ViewportUnits="Absolute" Viewport="0,0,1024,768">
+                <ImageBrush.RelativeTransform>
+
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                        <TranslateTransform X="223"/>
+                    </TransformGroup>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+        </Grid.Background>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <RectAnimation Storyboard.TargetProperty="Background.Viewport"
+                                   To="-1024,0,1024,768" Duration="0:0:25" 
+                                   RepeatBehavior="Forever"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+
+        <Image Source="ship_clipper_T.png" Height="94" Width="145" Margin="-22,40,177,10"/>
+        <Image Source="battleship_banner.png" Height="105" Width="274" Margin="10,106,16,64" Grid.RowSpan="2"/>
+
+        <Button x:Name="startBtn"  HorizontalAlignment="Left" Height="60" Margin="63,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="163"  Background="Transparent" BorderBrush="Transparent" Click="startBtn_Click" >
+            <Image x:Name="start" Source="actualStart.png" Height="52" Width="148"/>
+        </Button>
+
+    </Grid>
+</Window>
