@@ -165,17 +165,29 @@ namespace Battleship2
 
         private void BtnUser_Click(object sender, RoutedEventArgs e)
         {
-            Button btnClicked = (Button)sender;
+            
             if (!(gameStarted))
             {
-                PlaceShip(ships[0], btnClicked);
-                ships.RemoveAt(0);     
-                if (ships.)
+                Boolean isPlaced = false;
+                
+                Button btnClicked = (Button)sender;
+                isPlaced = PlaceShip(ships[0], btnClicked);
+                    
+                if(isPlaced)
+                {
+                    ships.RemoveAt(0);
+                    if(ships.Count == 0)
+                    {
+                        MessageBox.Show("All ships placed! Click the start button!");
+                    }
+                }
+
             } // end if (!gameStarted)
         }// end BtnUser_Click event handler
 
-        private void PlaceShip(Ship ship, Button btnClicked)
+        private Boolean PlaceShip(Ship ship, Button btnClicked)
         {
+            Boolean isPlaced = false;
             // Check if this button is "free" (no content)
             if ( !(btnClicked.Content.Equals("noShip")) )
             {
@@ -224,13 +236,16 @@ namespace Battleship2
                         for (int index = j; index <= j + ship.GetSize() - 1; index++)
                         {
                             userButtons[i, index].Content = "d";
+                            
                         }
+                        isPlaced = true;
+                        return isPlaced;
                     }
 
                 }// If enough space on graph
                 else
                 {
-                    MessageBox.Show("The ship does not fit there!");
+                    return isPlaced = false;
                 }
             }
             else // IF vertical
@@ -253,15 +268,20 @@ namespace Battleship2
                         for (int index = i; index <= i + ship.GetSize() - 1; index++)
                         {
                             userButtons[index, j].Content = "a";
+                            
                         }
+                        isPlaced = true;
+                        return isPlaced;
                     }
 
                 }// If enough space on graph
                 else
                 {
-                    MessageBox.Show("The ship does not fit there!");
+                    return isPlaced = false;
                 }
             }
+
+            return isPlaced;
         }// end PlaceShip method
 
         private void BtnComp_Click(object sender, RoutedEventArgs e)
