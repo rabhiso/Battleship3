@@ -23,7 +23,12 @@ namespace Battleship3
     {
         private static MediaPlayer playMusic = new MediaPlayer();
         Button[,] userButtons = new Button[10, 10];
+        int counter = 0;
+        String[] array = new String[100]; //you will end up filing it until 100
 
+        //the user will start first
+        bool userTurn = true;
+        bool compTurn = false;
         public GameWindow()
         {
             InitializeComponent();
@@ -160,6 +165,100 @@ namespace Battleship3
 
 
         }// End userSetUps method
+
+
+
+        //how to put this in 
+        private void BtnUser_Click(object sender, RoutedEventArgs e)
+        {
+            //will invoke the method according to the level seleced
+            if (level1.IsChecked == true)
+            {
+                computerPlayLevel1();
+            }
+
+            if (level2.IsChecked == true)
+            {
+                computerPlayLevel2();
+            }
+
+            if (level3.IsChecked == true)
+            {
+                computerPlayLevel3();
+
+            }
+
+        }// end BtnUser_Click event handler
+
+        public Image creatXImage()
+        {
+            Image xImage = new Image
+            {
+                Source = new BitmapImage(new Uri("ship-hit.png", UriKind.Relative)),
+            };
+        }//end creat image
+        public String assignRandom()
+        {
+            Random randomNum = new Random();
+            //generate a random row
+            int col = randomNum.Next(0, 10); //num between 0-9
+            int row = randomNum.Next(0, 10); //num between 0-9
+            //store those to make sure that we dont user them again
+            String point = row + "," + col;
+
+            for(int index = 0; index < counter; index++)
+            {
+                while (point.Equals(array[index]))
+                {
+                     col = randomNum.Next(0, 10); //num between 0-9
+                     row = randomNum.Next(0, 10); //num between 0-9
+                    point = row + "," + col;
+                    index=-1;//what if returns the same thing again ask sonya (so you restart) 
+
+                }//end while 
+            }//end for 
+             ///only when u r out u know those are new points and u add them in to the array
+            array[counter] = point;
+            return point;
+            }//end method      
+
+        public void computerPlayLevel1()
+    {
+            counter++;
+            String point = assignRandom();
+            int row = int.Parse(point.Substring(0,point.IndexOf(","))); //0,4 //you want all from 0 until , not included
+            int col = int.Parse(point.Substring(point.IndexOf(",")+1)); //so you will have everything from ,+1 meaning the rest of the num
+
+            Button guess = userButtons[row, col];
+
+                if (!(Image)(guess.Content).BaseUri.equals("ImgShip"){ ///compare name or ui 
+                    compTurn = false; ///inside the method
+                    guess.Content = creatXImage();// or flips ?!?!?! ask sonya
+                }
+
+                else
+                {///comp found it
+                        //image of the ship becomes visible?//what if its the whole ship? 
+                        //I would put a fire effect+boom
+                        //u have it right sonya
+                        // a method that will check if the current button ship, were all of the buttons found ?
+                        guess.Content = creatShipImage();
+                compTurn = true;//inside the method ?! ask Sonya 
+                        checkIfFound();//description above
+                }//end else
+            }//end method 
+
+
+    
+
+
+
+    public void decideTimer()
+    {
+            /**
+             * to do 
+             **/
+    }
 
     }// End MainWindow class
 

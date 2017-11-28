@@ -8,6 +8,5 @@ namespace Battleship3
 {
    public class Strategy
     {
-       //how to have to acces to label?
     }
 }

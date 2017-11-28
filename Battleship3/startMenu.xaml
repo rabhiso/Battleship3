@@ -61,6 +61,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        
+        
         <Button x:Name="startBtn"  HorizontalAlignment="Left" Height="48" Margin="60,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182"  Background="Transparent" BorderBrush="Transparent" Click="startBtn_Click" >
             <Image x:Name="start" Source="start.png" Height="31" Width="183"/>
         </Button>
