@@ -30,8 +30,8 @@ namespace Battleship3
 
         public static void PlayWin()
         {
-            playLose.Open(new Uri(Path.Combine(Environment.CurrentDirectory, "Sad_Violin_-_MLG_Sound_Effects_HD[Mp3Converter.net]")));
-            playLose.Play();
+            playWin.Open(new Uri(Path.Combine(Environment.CurrentDirectory,"Heavenly_Music_Vanoss_Sound_Effect[Mp3Converter.net]")));
+            playWin.Play();
         }
     }
 }
