@@ -37,13 +37,32 @@
                 </BeginStoryboard>
             </EventTrigger>
         </Grid.Triggers>
+        <Image Source="lightk.png" Margin="30,52,41,54" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.253"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Image Source="ship_clipper_T.png" Margin="89,0,-92,22"/>
 
 
-        <Image Source="ship_clipper_T.png" Height="94" Width="145" Margin="-22,40,177,10"/>
-        <Image Source="battleship_banner.png" Height="105" Width="274" Margin="10,106,16,64" Grid.RowSpan="2"/>
-
-        <Button x:Name="startBtn"  HorizontalAlignment="Left" Height="60" Margin="63,72,0,0" Grid.Row="1" VerticalAlignment="Top" Width="163"  Background="Transparent" BorderBrush="Transparent" Click="startBtn_Click" >
-            <Image x:Name="start" Source="actualStart.png" Height="52" Width="148"/>
+        <Image Source="battleship_banner.png" Margin="-33,92,-38,85" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.815"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="startBtn"  HorizontalAlignment="Left" Height="48" Margin="60,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182"  Background="Transparent" BorderBrush="Transparent" Click="startBtn_Click" >
+            <Image x:Name="start" Source="start.png" Height="31" Width="183"/>
         </Button>
 
     </Grid>

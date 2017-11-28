@@ -28,16 +28,10 @@ namespace Battleship3
         {
             InitializeComponent();
             initialSetUps();
-            PlayBackgroundMusic();
+            Music.PlayBackgroundMusic();
         }
-
-        public static void PlayBackgroundMusic()
-        {
-            Uri backgroundMusic = new Uri("backgroundMusic.mp3", UriKind.Relative);
-            var player = new MediaPlayer();
-            player.Open(backgroundMusic);
-            player.Play();
-        }
+            
+        
 
         private void initialSetUps()
         {

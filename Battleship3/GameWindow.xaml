@@ -14,7 +14,18 @@
             <ColumnDefinition Width="26*"/>
         </Grid.ColumnDefinitions>
 
-
+        <Image Source="fish.png" Margin="307,113,104,309"/>
+        <Image Source="fish.png" Margin="307,20,104,388"/>
+        <Image Source="style.png" Margin="315,204,96,204" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90.087"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
 
         <Grid.Background>
             <ImageBrush ImageSource="sea4.png"
@@ -297,16 +308,16 @@
             <Button Grid.Column="8" Grid.Row="9"/>
             <Button Grid.Column="9" Grid.Row="9"/>
         </Grid>
-        <Button x:Name="MinusBtn" Content="-" HorizontalAlignment="Left" Margin="318,84,0,0" VerticalAlignment="Top" Width="23" Height="21"/>
-        <Button x:Name="PlusBtn" Content="+" HorizontalAlignment="Left" Margin="417,84,0,0" VerticalAlignment="Top" Width="24" Height="21" RenderTransformOrigin="1.599,0.083" FontFamily="Comic Sans MS"/>
-        <Label Content="Level" HorizontalAlignment="Left" Margin="361,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.3,0.417" FontFamily="Comic Sans MS" />
-        <Label x:Name="level_Lbl" Content="1" HorizontalAlignment="Left" Margin="370,81,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.462,0.475" FontFamily="Comic Sans MS"/>
-        <Label Content="Timer" HorizontalAlignment="Left" Margin="361,123,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
-        <Label x:Name="Time_Lbl" Content="8" HorizontalAlignment="Left" Margin="370,149,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
-        <Button x:Name="Time_plus_Btn" Content="+" HorizontalAlignment="Left" Margin="417,157,0,0" VerticalAlignment="Top" Width="24" Height="21" RenderTransformOrigin="1.599,0.083" FontFamily="Comic Sans MS" />
-        <Button x:Name="Time_minus_Btn" Content="-" HorizontalAlignment="Left" Margin="318,157,0,0" VerticalAlignment="Top" Width="23" Height="21"/>
-        <Button x:Name="Save_Btn" Content="Save" HorizontalAlignment="Left" Margin="266,209,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS"/>
-        <Button x:Name="Load_Btn" Content="Load" HorizontalAlignment="Left" Margin="417,209,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS"/>
+        <Button x:Name="MinusBtn" Content="-" HorizontalAlignment="Left" Margin="318,104,0,0" VerticalAlignment="Top" Width="23" Height="21" BorderBrush="Transparent" FontFamily="Comic Sans MS" RenderTransformOrigin="0.304,1.571"/>
+        <Button x:Name="PlusBtn" Content="+" HorizontalAlignment="Left" Margin="417,104,0,0" VerticalAlignment="Top" Width="24" Height="21" RenderTransformOrigin="1.599,0.083" FontFamily="Comic Sans MS" BorderBrush="Transparent"/>
+        <Label Content="Level" HorizontalAlignment="Left" Margin="351,56,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.3,0.417" FontFamily="Comic Sans MS" BorderBrush="Transparent" FontSize="18"/>
+        <Label x:Name="level_Lbl" Content="1" HorizontalAlignment="Left" Margin="375,73,0,0" VerticalAlignment="Top" Width="22" RenderTransformOrigin="0.462,0.475" FontFamily="Comic Sans MS" BorderBrush="Transparent"/>
+        <Label Content="Timer" HorizontalAlignment="Left" Margin="351,141,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="18" Height="37"/>
+        <Label x:Name="Time_Lbl" Content="8" HorizontalAlignment="Left" Margin="375,160,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS"/>
+        <Button x:Name="Time_plus_Btn" Content="+" HorizontalAlignment="Left" Margin="417,188,0,0" VerticalAlignment="Top" Width="24" Height="21" RenderTransformOrigin="1.599,0.083" FontFamily="Comic Sans MS" BorderBrush="Transparent" />
+        <Button x:Name="Time_minus_Btn" Content="-" HorizontalAlignment="Left" Margin="318,188,0,0" VerticalAlignment="Top" Width="23" Height="21"/>
+        <Button x:Name="Save_Btn" Content="Save" HorizontalAlignment="Left" Margin="266,246,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS" BorderBrush="Transparent"/>
+        <Button x:Name="Load_Btn" Content="Load" HorizontalAlignment="Left" Margin="417,246,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS" BorderBrush="Transparent"/>
         <Image x:Name="ImgShip" Margin="-71,-224,570,693" Source="lego-square.png" Stretch="Fill" RenderTransformOrigin="-3.291,-0.265"/>
         <Image x:Name="ImgShipHit" Margin="-155,-224,634,698" Source="ship-hit.png" Stretch="Fill"/>
         <Image x:Name="ImgShipMiss" Margin="-238,-224,717,690" Source="ship-missed.png" Stretch="Fill"/>

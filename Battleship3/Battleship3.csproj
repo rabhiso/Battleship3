@@ -117,14 +117,22 @@
     <Resource Include="finalSea.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="actualStart.png" />
-    <Content Include="backgroundMusic.mp3" />
+    <Resource Include="star.png" />
+    <Resource Include="start.png" />
+    <Content Include="backgroundMusic.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="ship_clipper_T.png" />
     <Resource Include="sea5.jpg" />
     <Resource Include="sea4.png" />
     <Resource Include="dol.png" />
     <Resource Include="battleship_banner.png" />
+    <Resource Include="fire.png" />
+    <Resource Include="button.png" />
+    <Resource Include="fish.png" />
     <Content Include="Heavenly_Music_Vanoss_Sound_Effect[Mp3Converter.net].mp3" />
+    <Resource Include="lightk.png" />
+    <Resource Include="redlight.png" />
     <Content Include="Sad_Violin_-_MLG_Sound_Effects_HD[Mp3Converter.net].mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
