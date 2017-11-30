@@ -25,8 +25,9 @@ namespace Battleship3
         Button[,] userButtons = new Button[10, 10];
         int counterLevel1 = 0;
         int counterLevel2 = 0;
+        int callingLevel2Method = 0;
         int counterLevel3 = 0;
-        bool possibleToCheck = true;
+        int numOfPossibilities = 0;
         String[] array = new String[100]; //you will end up filing it until 100
 
         //the user will start first
@@ -38,8 +39,8 @@ namespace Battleship3
             initialSetUps();
             Music.PlayBackgroundMusic();
         }
-            
-        
+
+
 
         private void initialSetUps()
         {
@@ -168,9 +169,9 @@ namespace Battleship3
 
 
         }// End userSetUps method
-   
 
-        public void computerPlay() { 
+
+        public void computerPlay() {
             //will invoke the method according to the level seleced
             if (level1.IsChecked == true)
             {
@@ -190,13 +191,7 @@ namespace Battleship3
 
         }// end computerPlay
 
-        public Image creatXImage()
-        {
-            Image xImage = new Image
-            {
-                Source = new BitmapImage(new Uri("ship-hit.png", UriKind.Relative)),
-            };
-        }//end creat image
+
         public String assignRandom(int counter)
         {
             Random randomNum = new Random();
@@ -205,151 +200,186 @@ namespace Battleship3
             int row = randomNum.Next(0, 10); //num between 0-9
             //store those to make sure that we dont user them again
             String point = row + "," + col;
-
-            for(int index = 0; index < counter; index++)
+            bool result = true;//so its unique 
+            for (int index = 0; index < counter; index++)
             {
-                while (point.Equals(array[index]))
+                if (point.Equals(array[index]))
                 {
-                     col = randomNum.Next(0, 10); //num between 0-9
-                     row = randomNum.Next(0, 10); //num between 0-9
+                    result = false;
+                }
+                                                                  /////////////////ask
+                }
+            while(!result)
+                {
+                    col = randomNum.Next(0, 10); //num between 0-9
+                    row = randomNum.Next(0, 10); //num between 0-9
                     point = row + "," + col;
-                    index=-1;//what if returns the same thing again ask sonya (so you restart) 
-
+                    index = -1; //restart , start checking from 0 index
                 }//end while 
             }//end for 
-             ///only when u r out u know those are new points and u add them in to the array
+             ///only when u r out u know those are new points and u add  them in to the array
             array[counterLevel1] = point;
             return point;
-            }//end method      
+        }//end assign random  
 
         public void computerPlayLevel1()
-    {
+        {
             counterLevel1++;
             String point = assignRandom(counterLevel1);
-            int row = int.Parse(point.Substring(0,point.IndexOf(","))); //0,4 //you want all from 0 until , not included
-            int col = int.Parse(point.Substring(point.IndexOf(",")+1)); //so you will have everything from ,+1 meaning the rest of the num
+            int row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
+            int col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
 
             Button guess = userButtons[row, col];
 
-                if (!(Image)(guess.Content).BaseUri.equals("ImgShip"){ ///compare name or ui 
-                    compTurn = false; ///inside the method
-                    guess.Content = creatXImage();// or flips ?!?!?! ask sonya
-                }
+            if (!(guess.Content).ToString().Equals("ImgShip")) {
+                Change_Player();
+                Reset_Timer();
+            }
 
-                else
-                {///comp found it
-                        //image of the ship becomes visible?//what if its the whole ship? 
-                        //I would put a fire effect+boom
-                        //u have it right sonya
-                        // a method that will check if the current button ship, were all of the buttons found ?
-                        guess.Content = creatShipImage();
-                compTurn = true;//inside the method ?! ask Sonya 
-                        checkIfFound();//description above
-                }//end else
-            }//end method 
+            else
+            {///comp found it
+                //image of the ship becomes visible?
+                //what if its the whole ship? //I would put a fire effect+boom
+                guess.IsEnabled = false;
+
+            }//end else
+        }//end level1
 
 
+    }//end computerPlayLevel2
 
+   
+    public void computerPlayLevel2()
+    {
+        int col;
+        int row;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       public void computerPlayLevel2()
+        if (callingLevel2Method == 0)
         {
-            int row;
-            int col;
-            if (possibleToCheck) {
-                String point = assignRandom(counterLevel2);
-                row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
-                col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
 
-                Button guess = userButtons[row, col];
-                //the starter point 
+            callingLevel2Method++; //will restart when timesChecked is == numOfPossebilities(should be 1 for sure)
+            //will be creating the possebelities at the first time we call the method 
+            //check on top
+            if (row - 1 >= 0)
+            {
+            possibleToCheckTop=true;
+                numOfPossebilities++;
+            }
 
-            }//end starter point
+            //check the buttom
+            if (row + 1 < userbuttons.length)
+            {
+                possibleToCheckButtom = true;
+                numofPossebilities++;
+            }
+
+            //when checking the initial button
+            numOfPossebilities++; //because we can obviously check the initial point ,should be at least 2 anyways 
+
+        }//end callingLevel2Method
+
+        counterLevel2++;//each time you generate a random number in this method , should add + numOfPossebilties...
+
+        String point = assignRandom(counterLevel2);
+        row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
+        col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
+
+        Button guess = userButtons[row, col];
+
+        //test intially
+        if (!(guess.Content).ToString().Equals("ImgShip"))
+        {
+            Change_Player();
+            Reset_Timer();
+            callingMethod2 = 0;// so next time you come here you generate a new number
+        }
+
+        else
+        {///comp found it
+            //image of the ship becomes visible?
+            //what if its the whole ship? //I would put a fire effect+boom
+            //guess.IsEnabled = false;
+
+            //still my turn
+            //reset timer anyways(?)
+            if (possibleToCheckTop)
+            {
+                //must add this point to the array, dont ever wanna check it again
+                guess = userButtons[row - 1][col];
+                counterLevel2++;//another point found
+                String point = row - 1 + "," + col;
+                array[counterLevel2++]=point;//since u added a new point
+
+                if (!(guess.Content).ToString().Equals("ImgShip"))
+                {
+                   
+                    Change_Player();
+                    Reset_Timer();
+                    //how to gete out of the method thought ?!!?
+
+                }
+
+                else
+                {
+                    if (possibleToCheckButtom)
+                    {
+                        guess = userButtons[row+1][col];
+                        counterLevel2++;//another point found
+                        String point = row + 1 + "," + col;
+                        array[counterLevel2++] = point;//since u added a new point
 
 
-                //compare it
-                if (!(Image)(guess.Content).BaseUri.equals("ImgShip"){ ///compare name or ui 
-                    compTurn = false; ///inside the method
-                    guess.Content = creatXImage();// or flips ?!?!?! ask sonya
-                
-                
+                        if (!(guess.Content).ToString().Equals("ImgShip"))
+                        {
+                            Change_Player();
+                            Reset_Timer();
+                            //change image to X
+                        }
+
+                        else
+                        {
+                            //you found the whole ship 
+                            //has to do with ships lenght if its 2 so would win before
+                        }
+                    }
+                }
+            }//end possible to checkTop
+
+            else
+            {
+                //check buttom only cuz cant search on
+                guess = userButtons[row + 1][col];
+                counterLevel2++;//another point found
+                String point = row + 1 + "," + col;
+                array[counterLevel2++] = point;//since u added a new point
+
+
+                if (!(guess.Content).ToString().Equals("ImgShip"))
+                {
+                    Change_Player();
+                    Reset_Timer();
+                    //change image to X
                 }
                 else
-                {///comp found it
-                    //image of the ship becomes visible?//what if its the whole ship? 
-                    //I would put a fire effect+boom
-                    //u have it right sonya
-                    // a method that will check if the current button ship, were all of the buttons found ?
-                    guess.Content = creatShipImage();
-                    compTurn = true;//inside the method ?! ask Sonya 
-                    checkIfFound();//description above
-                }//end else
-          
-
-                //rows check 1 above
-                if (row + 1 <= userButtons[row])//check if length, check if not later when deskcheck
                 {
-                    guess = userButtons[row + 1, col];
-                    (!(Image)(guess.Content).BaseUri.equals("ImgShip"){ ///compare name or ui 
-                        compTurn = false; ///inside the method
-                        guess.Content = creatXImage();// or flips ?!?!?! ask sonya
-                    }
-                    else
-                {///comp found it
-                        //image of the ship becomes visible?//what if its the whole ship? 
-                        //I would put a fire effect+boom
-                        //u have it right sonya
-                        // a method that will check if the current button ship, were all of the buttons found ?
-                        guess.Content = creatShipImage();
-                        compTurn = true;//inside the method ?! ask Sonya 
-                        checkIfFound();//description above
-                    }//end else
+                    //you found it 
+                    //still change_Player() since there is no more searching done
+                    method2Call++;
+
                 }
 
+            }
 
-                if (calledLevel2 == 2)
-                    calledLevel2++;
+        }//end else
 
-                {
-                    if (row - 1 >= 0)
-                    {
-                        guess = userButtons[row - 1, col];
-                        (!(Image)(guess.Content).BaseUri.equals("ImgShip"){ ///compare name or ui 
-                            compTurn = false; ///inside the method
-                            guess.Content = creatXImage();// or flips ?!?!?! ask sonya
-                        }
-                        else
-                {///comp found it
-                            //image of the ship becomes visible?//what if its the whole ship? 
-                            //I would put a fire effect+boom
-                            //u have it right sonya
-                            // a method that will check if the current button ship, were all of the buttons found ?
-                            guess.Content = creatShipImage();
-                            compTurn = true;//inside the method ?! ask Sonya 
-                            checkIfFound();//description above
-                        }//end else
-                    }
-
-        }//end computerPlayLevel2
+    }//end computerPlayLevel2
 
 
-
+public void computerPlayLevel3()
+{
+    computerPlayLevel2();
+    //than logic of both sides -friday
+}
 
 
 
