@@ -21,13 +21,20 @@ namespace Battleship3
     /// </summary>
     public partial class GameWindow : Window
     {
+        //general
         private static MediaPlayer playMusic = new MediaPlayer();
         Button[,] userButtons = new Button[10, 10];
-        int counterLevel1 = 0;
-        int counterLevel2 = 0;
-        int callingLevel2Method = 0;
-        int counterLevel3 = 0;
-        int numOfPossibilities = 0;
+
+/// <summary>
+/// levels , counter that places points within the array 
+/// </summary>
+        int counterPointsFound = 0; //should have counter for every method?
+
+
+        Boolean possibleToCheckTop=false; //by default
+        Boolean possibleToCheckButtom=false; //by default
+
+
         String[] array = new String[100]; //you will end up filing it until 100
 
         //the user will start first
@@ -170,26 +177,66 @@ namespace Battleship3
 
         }// End userSetUps method
 
-
-        public void computerPlay() {
+        public void computerPlay()
+        {
             //will invoke the method according to the level seleced
             if (level1.IsChecked == true)
             {
                 computerPlayLevel1();
             }
 
+
+
+
             if (level2.IsChecked == true)
             {
                 computerPlayLevel2();
             }
 
+
+
+
             if (level3.IsChecked == true)
             {
                 computerPlayLevel3();
 
+
+
+
             }
 
+
+
+
         }// end computerPlay
+
+
+
+
+        public Boolean seeIfRepeated(String point, Boolean result, int counter)
+        {
+            for (int index = 0; index < counter; index++)
+            {
+                if (point.Equals(array[index]))
+                {
+                    result = false;
+                }
+
+                else
+                {
+                    result = true;
+                }
+            }//end for loop
+
+
+            return result;
+        }//end method
+
+
+
+
+
+
 
 
         public String assignRandom(int counter)
@@ -200,123 +247,133 @@ namespace Battleship3
             int row = randomNum.Next(0, 10); //num between 0-9
             //store those to make sure that we dont user them again
             String point = row + "," + col;
-            bool result = true;//so its unique 
-            for (int index = 0; index < counter; index++)
+           Boolean result = true;//assuming                                          //bool vs Bool difference
+
+
+            //the actual result 
+            result = seeIfRepeated(point, result, counter);
+
+
+            while (!result)
             {
-                if (point.Equals(array[index]))
-                {
-                    result = false;
-                }
-                                                                  /////////////////ask
-                }
-            while(!result)
-                {
-                    col = randomNum.Next(0, 10); //num between 0-9
-                    row = randomNum.Next(0, 10); //num between 0-9
-                    point = row + "," + col;
-                    index = -1; //restart , start checking from 0 index
-                }//end while 
-            }//end for 
-             ///only when u r out u know those are new points and u add  them in to the array
-            array[counterLevel1] = point;
+                col = randomNum.Next(0, 10); //num between 0-9
+                row = randomNum.Next(0, 10); //num between 0-9
+                point = row + "," + col;
+                result = seeIfRepeated(point, result, counter);
+            }//end while 
+
+            ///only when u r out u know those are new points and u add  them in to the array
+            array[counter] = point;
             return point;
         }//end assign random  
 
+
+
+
         public void computerPlayLevel1()
         {
-            counterLevel1++;
-            String point = assignRandom(counterLevel1);
+
+
+            String point = assignRandom(counterPointsFound);
             int row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
             int col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
+            counterPointsFound++;
+
 
             Button guess = userButtons[row, col];
 
-            if (!(guess.Content).ToString().Equals("ImgShip")) {
+
+            if (!(guess.Content).ToString().Equals("ImgShip"))
+            {
                 Change_Player();
                 Reset_Timer();
             }
+
+
+
 
             else
             {///comp found it
                 //image of the ship becomes visible?
                 //what if its the whole ship? //I would put a fire effect+boom
                 guess.IsEnabled = false;
+                /////////I think calling disabelling the board should happened out side of this method
+                //because if the computer finds the image, it could play again,
+                //we must call it from the outside 
+
 
             }//end else
         }//end level1
 
+      
 
-    }//end computerPlayLevel2
 
-   
-    public void computerPlayLevel2()
+
+        public void computerPlayLevel2()
     {
-        int col;
-        int row;
+//assign a random colom to search at
+        String point = assignRandom(counterPointsFound);
+        int  row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
+        int  col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
+        counterPointsFound++;
 
-        if (callingLevel2Method == 0)
-        {
-
-            callingLevel2Method++; //will restart when timesChecked is == numOfPossebilities(should be 1 for sure)
-            //will be creating the possebelities at the first time we call the method 
-            //check on top
-            if (row - 1 >= 0)
-            {
-            possibleToCheckTop=true;
-                numOfPossebilities++;
-            }
-
-            //check the buttom
-            if (row + 1 < userbuttons.length)
+            //check if buttom 
+            if (row + 1 < userButtons.Length)
             {
                 possibleToCheckButtom = true;
-                numofPossebilities++;
+
+            }
+            else
+            {
+                possibleToCheckButtom = false;
+
+            }
+            
+            //check if top
+            if (row - 1 >= 0)
+            {
+                possibleToCheckTop = true;
+
             }
 
-            //when checking the initial button
-            numOfPossebilities++; //because we can obviously check the initial point ,should be at least 2 anyways 
+            else
+            {
+                possibleToCheckTop = false;
+            }
 
-        }//end callingLevel2Method
-
-        counterLevel2++;//each time you generate a random number in this method , should add + numOfPossebilties...
-
-        String point = assignRandom(counterLevel2);
-        row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
-        col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
-
-        Button guess = userButtons[row, col];
+            Button guess = userButtons[row, col];
 
         //test intially
         if (!(guess.Content).ToString().Equals("ImgShip"))
         {
             Change_Player();
             Reset_Timer();
-            callingMethod2 = 0;// so next time you come here you generate a new number
+
+                //get out of this method 
         }
 
         else
         {///comp found it
-            //image of the ship becomes visible?
-            //what if its the whole ship? //I would put a fire effect+boom
-            //guess.IsEnabled = false;
-
             //still my turn
             //reset timer anyways(?)
+
+
+                //check either top or buttom 
             if (possibleToCheckTop)
             {
                 //must add this point to the array, dont ever wanna check it again
-                guess = userButtons[row - 1][col];
-                counterLevel2++;//another point found
-                String point = row - 1 + "," + col;
-                array[counterLevel2++]=point;//since u added a new point
+                guess = userButtons[row-1][col];
+               counterPointsFound++;//another point found
+                 point = row - 1 + "," + col;
+                array[counterPointsFound]=point;//since u are checking a new point a new point, make sure that random will not generate it 
 
                 if (!(guess.Content).ToString().Equals("ImgShip"))
                 {
                    
                     Change_Player();
                     Reset_Timer();
-                    //how to gete out of the method thought ?!!?
-
+                    //supposed to get out of the method
+                    //image to x
                 }
 
                 else
@@ -324,9 +381,9 @@ namespace Battleship3
                     if (possibleToCheckButtom)
                     {
                         guess = userButtons[row+1][col];
-                        counterLevel2++;//another point found
-                        String point = row + 1 + "," + col;
-                        array[counterLevel2++] = point;//since u added a new point
+                        counterPointsFound++;//another point found
+                        point = row + 1 + "," + col;
+                        array[counterPointsFound] = point;//since u added a new point
 
 
                         if (!(guess.Content).ToString().Equals("ImgShip"))
@@ -334,6 +391,7 @@ namespace Battleship3
                             Change_Player();
                             Reset_Timer();
                             //change image to X
+                            //get out of the loop
                         }
 
                         else
@@ -342,16 +400,16 @@ namespace Battleship3
                             //has to do with ships lenght if its 2 so would win before
                         }
                     }
-                }
+                }//if cant check buttom not gonna enter here 
             }//end possible to checkTop
 
             else
             {
                 //check buttom only cuz cant search on
                 guess = userButtons[row + 1][col];
-                counterLevel2++;//another point found
-                String point = row + 1 + "," + col;
-                array[counterLevel2++] = point;//since u added a new point
+                counterPointsFound++;//another point found
+                 point = row + 1 + "," + col;
+                array[counterPointsFound] = point;//since u added a new point
 
 
                 if (!(guess.Content).ToString().Equals("ImgShip"))
@@ -364,7 +422,7 @@ namespace Battleship3
                 {
                     //you found it 
                     //still change_Player() since there is no more searching done
-                    method2Call++;
+                    
 
                 }
 
@@ -373,6 +431,32 @@ namespace Battleship3
         }//end else
 
     }//end computerPlayLevel2
+
+
+
+
+        //note:
+        //else block , change image to x
+        //get out of the loop and change the player bord via variable .. compare with girls
+        //if is in the last else has found
+        //or second else                         possibility of finding a ship.must check the length.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 public void computerPlayLevel3()

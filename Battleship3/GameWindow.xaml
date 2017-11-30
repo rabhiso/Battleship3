@@ -313,7 +313,7 @@
         <Image x:Name="ImgShipHit" Margin="-155,-224,634,698" Source="ship-hit.png" Stretch="Fill"/>
         <Image x:Name="ImgShipMiss" Margin="-238,-224,717,690" Source="ship-missed.png" Stretch="Fill"/>
         <RadioButton Name="level1" Content="Level1" HorizontalAlignment="Left" Margin="326,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.671,0.467"/>
-        <RadioButton Name="level2" Content="Level2" HorizontalAlignment="Left" Margin="326,88,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="level2" Content="Level2" HorizontalAlignment="Left" Margin="323,88,0,0" VerticalAlignment="Top"/>
         <RadioButton Name="level3" Content="Level3" HorizontalAlignment="Left" Margin="326,108,0,0" VerticalAlignment="Top"/>
 
 
