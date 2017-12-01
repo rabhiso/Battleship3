@@ -120,6 +120,7 @@
     <Content Include="backgroundMusic.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="VINE BOOM SOUND EFFECT.mp3" />
     <Resource Include="ships.png" />
     <Resource Include="startBtn.png" />
     <Resource Include="sea4.png" />
