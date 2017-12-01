@@ -124,7 +124,6 @@
     <Resource Include="ships.png" />
     <Resource Include="startBtn.png" />
     <Resource Include="sea4.png" />
-    <Resource Include="dol.png" />
     <Resource Include="fish.png" />
     <Resource Include="hdback.jpg" />
     <Content Include="Heavenly_Music_Vanoss_Sound_Effect[Mp3Converter.net].mp3" />
