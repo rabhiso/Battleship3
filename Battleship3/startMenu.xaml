@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Battleship3"
         mc:Ignorable="d"
         Title="startMenu" Height="300" Width="300">
-    <Grid Margin="0,0,-8,-7">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="13*"/>
             <RowDefinition Height="12*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="sea5.jpg" 
+            <ImageBrush ImageSource="hdback.jpg" 
                     Stretch="Fill" TileMode="FlipXY"
                     ViewportUnits="Absolute" Viewport="0,0,1024,768">
                 <ImageBrush.RelativeTransform>
@@ -37,7 +37,7 @@
                 </BeginStoryboard>
             </EventTrigger>
         </Grid.Triggers>
-        <Image Source="lightk.png" Margin="30,52,41,54" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+        <Image Source="lightk.png" Margin="72,122,73,82" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -48,21 +48,14 @@
             </Image.RenderTransform>
         </Image>
 
-        <Image Source="ship_clipper_T.png" Margin="89,0,-92,22"/>
+        <Image Source="ofLogo.png" Margin="0,18,0,22" RenderTransformOrigin="0.5,0.5"/>
+        <Image Source="ships.png" Margin="-3,91,0,63" Grid.RowSpan="2"/>
+        <Image Source="startBtn.png" Margin="36,69,34,21" RenderTransformOrigin="0.5,0.5" Grid.Row="1"/>
 
 
-        <Image Source="battleship_banner.png" Margin="-33,92,-38,85" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.815"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="startBtn"  HorizontalAlignment="Left" Height="48" Margin="60,63,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182"  Background="Transparent" BorderBrush="Transparent" Click="startBtn_Click" >
-            <Image x:Name="start" Source="start.png" Height="31" Width="183"/>
+
+
+        <Button x:Name="startBtn"  HorizontalAlignment="Left" Height="48" Margin="60,69,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182"  Background="Transparent" BorderBrush="DarkBlue" BorderThickness="2" Click="startBtn_Click" >
         </Button>
 
     </Grid>

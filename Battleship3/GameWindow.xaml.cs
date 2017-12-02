@@ -21,17 +21,34 @@ namespace Battleship3
     /// </summary>
     public partial class GameWindow : Window
     {
+        //general
         private static MediaPlayer playMusic = new MediaPlayer();
         Button[,] userButtons = new Button[10, 10];
 
+        /// <summary>
+        /// levels , counter that places points within the array 
+        /// </summary>
+        int counterPointsFound;//ound = 0; //should have counter for every method?
+
+        
+        Boolean possibleToCheckTop=false; //by default
+        Boolean possibleToCheckButtom=false; //by default
+        Boolean possibleToCheckRight = false;
+        Boolean possibleToCheckLeft = false;
+
+        String[] array = new String[100]; //you will end up filing it until 100
+
+        //the user will start first
+        bool userTurn = true;
+        bool compTurn = false;
         public GameWindow()
         {
             InitializeComponent();
             initialSetUps();
             Music.PlayBackgroundMusic();
         }
-            
-        
+
+
 
         private void initialSetUps()
         {
@@ -161,6 +178,463 @@ namespace Battleship3
 
         }// End userSetUps method
 
+        public void computerPlay()
+        {
+            //will invoke the method according to the level seleced
+            if (level1.IsChecked == true)
+            {
+                level1.IsEnabled = false;
+                computerPlayLevel1();
+            }
+
+
+
+
+            if (level2.IsChecked == true)
+            {
+                level2.IsEnabled = false;
+                computerPlayLevel2();
+            }
+
+
+
+
+            if (level3.IsChecked == true)
+            {
+                level3.IsEnabled = false;
+                computerPlayLevel3();
+            }
+
+
+
+
+        }// end computerPlay
+
+
+
+        public Boolean seeIfRepeated(String point, Boolean result, int counter)
+        {
+            for (int index = 0; index < counter; index++)
+            {
+                if (point.Equals(array[index]))
+                {
+                    result = false;
+                }
+
+                else
+                {
+                    result = true;
+                }
+            }//end for loop
+
+
+            return result;
+        }//end method
+
+
+
+
+        public String assignRandom(int counter)
+        {
+            Random randomNum = new Random();
+            //generate a random row
+            int col = randomNum.Next(0, 10); //num between 0-9
+            int row = randomNum.Next(0, 10); //num between 0-9
+            //store those to make sure that we dont user them again
+            String point = row + "," + col;
+           Boolean result = true;//assuming                                          //bool vs Bool difference
+
+
+            //the actual result 
+            result = seeIfRepeated(point, result, counter);
+
+
+            while (!result)
+            {
+                col = randomNum.Next(0, 10); //num between 0-9
+                row = randomNum.Next(0, 10); //num between 0-9
+                point = row + "," + col;
+                result = seeIfRepeated(point, result, counter);
+            }//end while 
+
+            ///only when u r out u know those are new points and u add  them in to the array
+            array[counter] = point;
+            return point;
+        }//end assign random  
+
+
+
+
+        public void computerPlayLevel1()
+        {
+
+
+            String point = assignRandom(counterPointsFound);
+            int row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
+            int col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
+            counterPointsFound++;
+
+
+            Button guess = userButtons[row, col];
+
+
+            if (!(guess.Content).ToString().Equals("ImgShip"))
+            {
+                //Change_Player();
+               // Reset_Timer();
+            }
+
+
+
+
+            else
+            {///comp found it
+                //image of the ship becomes visible?
+                //what if its the whole ship? //I would put a fire effect+boom
+                guess.IsEnabled = false;
+                /////////I think calling disabelling the board should happened out side of this method
+                //because if the computer finds the image, it could play again,
+                //we must call it from the outside 
+
+
+            }//end else
+        }//end level1
+
+      
+
+
+
+        public void computerPlayLevel2()
+        {
+            //assign a random colom to search at
+            String point = assignRandom(counterPointsFound);
+            int  row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
+            int  col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
+            counterPointsFound++;
+
+            Button guess = userButtons[row, col];
+
+            //test intially
+            if (!(guess.Content).ToString().Equals("ImgShip"))
+            {
+                //Change_Player();
+                //Reset_Timer();
+
+                //get out of this method 
+            }
+            else
+            {///comp found it
+                //still my turn
+                //reset timer anyways(?)
+                //check if buttom 
+                if ((row + 1) < userButtons.Length)
+                {
+                    possibleToCheckButtom = true;
+
+                }
+                else
+                {
+                    possibleToCheckButtom = false;
+                }
+
+                //check if top
+                if ((row - 1) >= 0)
+                {
+                    possibleToCheckTop = true;
+
+                }
+                else
+                {
+                    possibleToCheckTop = false;
+                }
+
+                //check either top or buttom 
+                if (possibleToCheckTop)
+                {
+                    //must add this point to the array, dont ever wanna check it again
+                    guess = userButtons[(row-1),col];
+                    point = (row - 1) + "," + col;
+                    array[counterPointsFound]=point;//since u are checking a new point a new point, make sure that random will not generate it 
+                    counterPointsFound++;//another point found
+
+                    if (!(guess.Content).ToString().Equals("ImgShip"))
+                    {
+                      //  Change_Player();
+                     //                     Reset_Timer();
+                        //supposed to get out of the method
+                        //image to x
+                    }
+                    else
+                    {
+                        if (possibleToCheckButtom)
+                        {
+                            guess = userButtons[(row+1),col];
+                            point = (row + 1) + "," + col;
+                            array[counterPointsFound] = point;//since u added a new point
+                            counterPointsFound++;//another point found
+
+                            if (!(guess.Content).ToString().Equals("ImgShip"))
+                            {
+                              //  Change_Player();
+                               // Reset_Timer();
+                                //change image to X
+                                //get out of the loop
+                            }
+                            else
+                            {
+                                    //you found the whole ship 
+                                   //has to do with ships lenght if its 2 so would win before
+                          
+                            }
+                        }
+                    }//if cant check buttom not gonna enter here 
+                }//end possible to checkTop
+                else
+                {
+                    //check buttom only cuz cant search on
+                    guess = userButtons[(row + 1), col];
+                    point = (row + 1 )+ "," + col;
+                    array[counterPointsFound] = point;//since u added a new point
+                    counterPointsFound++;//another point found
+
+
+                    if (!(guess.Content).ToString().Equals("ImgShip"))
+                    {
+                       // Change_Player();
+                        //Reset_Timer();
+                        //change image to X
+                    }
+                    else
+                    {
+                        //you found it 
+                        //still change_Player() since there is no more searching done
+                    }
+                }
+            }//end else
+        }//end computerPlayLevel2
+
+        //note:
+        //else block , change image to x
+        //get out of the loop and change the player bord via variable .. compare with girls
+        //if is in the last else has found
+        //or second else                         possibility of finding a ship.must check the length.
+
+
+
+/// <summary>
+///Level3
+/// </summary>
+
+
+        public void computerPlayLevel3()
+        {
+            //assign a random colom to search at
+            String point = assignRandom(counterPointsFound);
+            int row = int.Parse(point.Substring(0, point.IndexOf(","))); //0,4 //you want all from 0 until , not included
+            int col = int.Parse(point.Substring(point.IndexOf(",") + 1)); //so you will have everything from ,+1 meaning the rest of the num
+            counterPointsFound++;
+
+            Button guess = userButtons[row, col];
+
+            //test intially
+            if (!(guess.Content).ToString().Equals("ImgShip"))
+            {
+               // Change_Player();
+               // Reset_Timer();
+
+                //get out of this method 
+            }
+            else
+            {///comp found it
+                //still my turn
+                //reset timer anyways(?)
+                //check if buttom 
+                if ((row + 1 )< userButtons.Length)
+                {
+                    possibleToCheckButtom = true;
+
+                }
+                else
+                {
+                    possibleToCheckButtom = false;
+                }
+
+                //check if top
+                if ((row - 1 )>= 0)
+                {
+                    possibleToCheckTop = true;
+
+                }
+                else
+                {
+                    possibleToCheckTop = false;
+                }
+
+                //check either top or buttom 
+                if (possibleToCheckTop)
+                {
+                    //must add this point to the array, dont ever wanna check it again
+                    guess = userButtons[(row - 1), col];
+                    point = (row - 1) + "," + col;
+                    array[counterPointsFound] = point;//since u are checking a new point a new point, make sure that random will not generate it 
+                    counterPointsFound++;//another point found
+
+                    if (!(guess.Content).ToString().Equals("ImgShip"))
+                    {
+                        //Change_Player();
+                        //Reset_Timer();
+                        //supposed to get out of the method
+                        //image to x
+                    }
+                    else
+                    {
+                        if (possibleToCheckButtom)
+                        {
+                            guess = userButtons[(row + 1), col];
+                            point = (row + 1 )+ "," + col;
+                            array[counterPointsFound] = point;//since u added a new point
+                            counterPointsFound++;//another point found
+
+                            if (!(guess.Content).ToString().Equals("ImgShip"))
+                            {
+                               // Change_Player();
+                               // Reset_Timer();
+                                //change image to X
+                                //get out of the loop
+                            }
+                            else
+                            {
+                                //you found the whole ship 
+                                //has to do with ships lenght if its 2 so would win before
+
+                            }
+                        }
+                    }//if cant check buttom not gonna enter here 
+                }//end possible to checkTop
+                else
+                {
+                    //check buttom only cuz cant search on
+                    guess = userButtons[(row + 1), col];
+                    point = (row + 1 )+ "," + col;
+                    array[counterPointsFound] = point;//since u added a new point
+                    counterPointsFound++;//another point found
+
+
+                    if (!(guess.Content).ToString().Equals("ImgShip"))
+                    {
+                        //Change_Player();
+                        //Reset_Timer();
+                        //change image to X
+                    }
+                    else
+                    {
+                        //you found it 
+                        //still change_Player() since there is no more searching done
+                    }
+                }
+
+                ////in this method we check buttom/top^ and the logic below will check right/left if possible , so same concepte
+
+                ///check if available right
+                if ((col + 1 )< userButtons.Length)//technically can be just userButtons[row] (ask Sonya)
+                {
+                    possibleToCheckRight = true;
+
+                }
+                else
+                {
+                    possibleToCheckRight = false;
+                }
+
+                //check if top
+                if ((col - 1) >= 0)
+                {
+                    possibleToCheckLeft = true;
+
+                }
+                else
+                {
+                    possibleToCheckLeft = false;
+                }
+
+                if (possibleToCheckRight)
+                {
+                    ///checks right
+
+                    guess = userButtons[row, (col + 1)];
+                    point = row + "," + (col + 1);
+                    array[counterPointsFound] = point;//since u added a new point
+                    counterPointsFound++;//another point found
+
+                    if (!(guess.Content).ToString().Equals("ImgShip"))
+                    {
+
+                        //Change_Player();
+                        //Reset_Timer();
+                        //supposed to get out of the method
+                        //image to x
+                    }
+                    else
+                    {
+                        //if still here will check the left
+                        if (possibleToCheckLeft)
+                        {
+                            guess = userButtons[row, (col - 1)];
+                            point = row + "," + (col - 1); 
+                            array[counterPointsFound] = point;//since u added a new point
+                            counterPointsFound++;//another point found
+
+                            if (!(guess.Content).ToString().Equals("ImgShip"))
+                            {
+
+                                //Change_Player();
+                                //Reset_Timer();
+                                //supposed to get out of the method
+                                //image to x
+                            }
+                            else
+                            {
+                                //show the ship etc.
+                            }
+                        }//end possible to check left
+                    }//if image was found on the right
+                }//possible to check right
+                else
+                {
+                    //will check left only 
+                    //no need to do ifPossibleTocheckLeft
+
+
+                    guess = userButtons[row, (col - 1)];
+                    point = row + "," + ((col - 1)); //ask
+                    array[counterPointsFound] = point;//since u added a new point
+                    counterPointsFound++;//another point found
+
+                    if (!(guess.Content).ToString().Equals("ImgShip"))
+                    {
+
+                        //Change_Player();
+                        //Reset_Timer();
+                        //supposed to get out of the method
+                        //image to x
+                    }
+                    else
+                    {
+                        //show the ship etc.
+                    }
+
+                }//end if can check left
+            }//end else of if found initially(only if found in the initiale point, all this will happened)
+        }//end computerPlayLevel3
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //auto generated IN SONYAS CODE
+        }
+        private void BtnComp_Click(object sender, RoutedEventArgs e)
+        {
+            //auto generated IN SONYA'S CODE
+        }
     }// End MainWindow class
 
     public class Ship
@@ -185,4 +659,4 @@ namespace Battleship3
         }
 
     }// End Ship class
-}
+}// End Namespace

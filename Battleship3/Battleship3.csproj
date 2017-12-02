@@ -102,7 +102,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="lego-square.png" />
@@ -114,25 +116,19 @@
     <Resource Include="ship-missed.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="finalSea.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="star.png" />
-    <Resource Include="start.png" />
     <Content Include="backgroundMusic.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="ship_clipper_T.png" />
-    <Resource Include="sea5.jpg" />
+    <Content Include="VINE BOOM SOUND EFFECT.mp3" />
+    <Resource Include="ships.png" />
+    <Resource Include="startBtn.png" />
     <Resource Include="sea4.png" />
-    <Resource Include="dol.png" />
-    <Resource Include="battleship_banner.png" />
-    <Resource Include="fire.png" />
-    <Resource Include="button.png" />
     <Resource Include="fish.png" />
+    <Resource Include="hdback.jpg" />
     <Content Include="Heavenly_Music_Vanoss_Sound_Effect[Mp3Converter.net].mp3" />
     <Resource Include="lightk.png" />
     <Resource Include="redlight.png" />
+    <Resource Include="ofLogo.png" />
     <Content Include="Sad_Violin_-_MLG_Sound_Effects_HD[Mp3Converter.net].mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
