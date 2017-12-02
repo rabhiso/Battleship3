@@ -25,10 +25,10 @@ namespace Battleship3
         private static MediaPlayer playMusic = new MediaPlayer();
         Button[,] userButtons = new Button[10, 10];
 
-/// <summary>
-/// levels , counter that places points within the array 
-/// </summary>
-        int counterPointsFound = 0; //should have counter for every method?
+        /// <summary>
+        /// levels , counter that places points within the array 
+        /// </summary>
+        int counterPointsFound;//ound = 0; //should have counter for every method?
 
         
         Boolean possibleToCheckTop=false; //by default
@@ -46,7 +46,6 @@ namespace Battleship3
             InitializeComponent();
             initialSetUps();
             Music.PlayBackgroundMusic();
-            computerPlayLevel1();
         }
 
 
