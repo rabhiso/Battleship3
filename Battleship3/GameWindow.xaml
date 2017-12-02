@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Battleship3"
         mc:Ignorable="d"
         Title="Battleship" Height="550" Width="825">
-    <Grid Margin="0,0,2,6">
+    <Grid Margin="1,0,1,-4" Height="523" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="539*"/>
             <ColumnDefinition Width="100*"/>
@@ -14,7 +14,6 @@
             <ColumnDefinition Width="76*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="dol.png" Margin="0,408,380,0"/>
             
 
         <Grid.Background>
@@ -44,7 +43,7 @@
             </EventTrigger>
         </Grid.Triggers>
 
-        <Grid x:Name="computerGrid" HorizontalAlignment="Left" Height="200" Margin="25,29,0,0" VerticalAlignment="Top" Width="200">
+        <Grid x:Name="computerGrid" HorizontalAlignment="Left" Height="209" Margin="25,29,0,0" VerticalAlignment="Top" Width="200">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20" />
                 <RowDefinition Height="20" />
@@ -147,7 +146,7 @@
             <Button x:Name="BtnComp74" Grid.Column="4" Grid.Row="7" Click="BtnComp_Click" BorderBrush="Turquoise"/>
             <Button x:Name="BtnComp75" Grid.Column="5" Grid.Row="7" Click="BtnComp_Click" BorderBrush="Turquoise"/>
             <Button x:Name="BtnComp76" Grid.Column="6" Grid.Row="7" Click="BtnComp_Click" BorderBrush="Turquoise"/>
-            <Button x:Name="BtnComp77" Grid.Column="7" Grid.Row="7" Click="BtnComp_Click" BorderBrush="Turquoise"/>
+            <Button x:Name="BtnComp77" Grid.Column="7" Grid.Row="7" Click="BtnComp_Click" BorderBrush="Turquoise" Height="21" VerticalAlignment="Top"/>
             <Button x:Name="BtnComp78" Grid.Column="8" Grid.Row="7" Click="BtnComp_Click" BorderBrush="Turquoise"/>
             <Button x:Name="BtnComp79" Grid.Column="9" Grid.Row="7" Click="BtnComp_Click" BorderBrush="Turquoise"/>
             <Button x:Name="BtnComp80" Grid.Column="0" Grid.Row="8" Click="BtnComp_Click" BorderBrush="Turquoise"/>
@@ -266,7 +265,7 @@
             <Button Grid.Column="2" Grid.Row="6" BorderBrush="DarkBlue"/>
             <Button Grid.Column="3" Grid.Row="6" BorderBrush="DarkBlue"/>
             <Button Grid.Column="4" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="6" BorderBrush="DarkBlue"/>
+            <Button Grid.Column="5" Grid.Row="6" BorderBrush="DarkBlue" Click="Button_Click"/>
             <Button Grid.Column="6" Grid.Row="6" BorderBrush="DarkBlue"/>
             <Button Grid.Column="7" Grid.Row="6" BorderBrush="DarkBlue"/>
             <Button Grid.Column="8" Grid.Row="6" BorderBrush="DarkBlue"/>

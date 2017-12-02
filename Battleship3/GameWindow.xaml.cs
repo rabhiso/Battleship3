@@ -30,10 +30,11 @@ namespace Battleship3
 /// </summary>
         int counterPointsFound = 0; //should have counter for every method?
 
-
+        
         Boolean possibleToCheckTop=false; //by default
         Boolean possibleToCheckButtom=false; //by default
-
+        Boolean possibleToCheckRight = false;
+        Boolean possibleToCheckLeft = false;
 
         String[] array = new String[100]; //you will end up filing it until 100
 
@@ -45,6 +46,7 @@ namespace Battleship3
             InitializeComponent();
             initialSetUps();
             Music.PlayBackgroundMusic();
+            computerPlayLevel1();
         }
 
 
@@ -182,6 +184,7 @@ namespace Battleship3
             //will invoke the method according to the level seleced
             if (level1.IsChecked == true)
             {
+                level1.IsEnabled = false;
                 computerPlayLevel1();
             }
 
@@ -190,6 +193,7 @@ namespace Battleship3
 
             if (level2.IsChecked == true)
             {
+                level2.IsEnabled = false;
                 computerPlayLevel2();
             }
 
@@ -198,18 +202,14 @@ namespace Battleship3
 
             if (level3.IsChecked == true)
             {
+                level3.IsEnabled = false;
                 computerPlayLevel3();
-
-
-
-
             }
 
 
 
 
         }// end computerPlay
-
 
 
 
@@ -231,10 +231,6 @@ namespace Battleship3
 
             return result;
         }//end method
-
-
-
-
 
 
 
@@ -332,7 +328,7 @@ namespace Battleship3
                 //still my turn
                 //reset timer anyways(?)
                 //check if buttom 
-                if (row + 1 < userButtons.Length)
+                if ((row + 1) < userButtons.Length)
                 {
                     possibleToCheckButtom = true;
 
@@ -343,7 +339,7 @@ namespace Battleship3
                 }
 
                 //check if top
-                if (row - 1 >= 0)
+                if ((row - 1) >= 0)
                 {
                     possibleToCheckTop = true;
 
@@ -357,8 +353,8 @@ namespace Battleship3
                 if (possibleToCheckTop)
                 {
                     //must add this point to the array, dont ever wanna check it again
-                    guess = userButtons[row-1,col];
-                    point = row - 1 + "," + col;
+                    guess = userButtons[(row-1),col];
+                    point = (row - 1) + "," + col;
                     array[counterPointsFound]=point;//since u are checking a new point a new point, make sure that random will not generate it 
                     counterPointsFound++;//another point found
 
@@ -373,8 +369,8 @@ namespace Battleship3
                     {
                         if (possibleToCheckButtom)
                         {
-                            guess = userButtons[row+1,col];
-                            point = row + 1 + "," + col;
+                            guess = userButtons[(row+1),col];
+                            point = (row + 1) + "," + col;
                             array[counterPointsFound] = point;//since u added a new point
                             counterPointsFound++;//another point found
 
@@ -397,8 +393,8 @@ namespace Battleship3
                 else
                 {
                     //check buttom only cuz cant search on
-                    guess = userButtons[row + 1, col];
-                    point = row + 1 + "," + col;
+                    guess = userButtons[(row + 1), col];
+                    point = (row + 1 )+ "," + col;
                     array[counterPointsFound] = point;//since u added a new point
                     counterPointsFound++;//another point found
 
@@ -426,22 +422,9 @@ namespace Battleship3
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/// <summary>
+///Level3
+/// </summary>
 
 
         public void computerPlayLevel3()
@@ -467,7 +450,7 @@ namespace Battleship3
                 //still my turn
                 //reset timer anyways(?)
                 //check if buttom 
-                if (row + 1 < userButtons.Length)
+                if ((row + 1 )< userButtons.Length)
                 {
                     possibleToCheckButtom = true;
 
@@ -478,7 +461,7 @@ namespace Battleship3
                 }
 
                 //check if top
-                if (row - 1 >= 0)
+                if ((row - 1 )>= 0)
                 {
                     possibleToCheckTop = true;
 
@@ -492,8 +475,8 @@ namespace Battleship3
                 if (possibleToCheckTop)
                 {
                     //must add this point to the array, dont ever wanna check it again
-                    guess = userButtons[row - 1, col];
-                    point = row - 1 + "," + col;
+                    guess = userButtons[(row - 1), col];
+                    point = (row - 1) + "," + col;
                     array[counterPointsFound] = point;//since u are checking a new point a new point, make sure that random will not generate it 
                     counterPointsFound++;//another point found
 
@@ -508,8 +491,8 @@ namespace Battleship3
                     {
                         if (possibleToCheckButtom)
                         {
-                            guess = userButtons[row + 1, col];
-                            point = row + 1 + "," + col;
+                            guess = userButtons[(row + 1), col];
+                            point = (row + 1 )+ "," + col;
                             array[counterPointsFound] = point;//since u added a new point
                             counterPointsFound++;//another point found
 
@@ -532,8 +515,8 @@ namespace Battleship3
                 else
                 {
                     //check buttom only cuz cant search on
-                    guess = userButtons[row + 1, col];
-                    point = row + 1 + "," + col;
+                    guess = userButtons[(row + 1), col];
+                    point = (row + 1 )+ "," + col;
                     array[counterPointsFound] = point;//since u added a new point
                     counterPointsFound++;//another point found
 
@@ -551,44 +534,109 @@ namespace Battleship3
                     }
                 }
 
-             ////in this method we check buttom/top^ and the logic below will check right/left if possible , so same concepte
+                ////in this method we check buttom/top^ and the logic below will check right/left if possible , so same concepte
+
+                ///check if available right
+                if ((col + 1 )< userButtons.Length)//technically can be just userButtons[row] (ask Sonya)
+                {
+                    possibleToCheckRight = true;
+
+                }
+                else
+                {
+                    possibleToCheckRight = false;
+                }
+
+                //check if top
+                if ((col - 1) >= 0)
+                {
+                    possibleToCheckLeft = true;
+
+                }
+                else
+                {
+                    possibleToCheckLeft = false;
+                }
+
+                if (possibleToCheckRight)
+                {
+                    ///checks right
+
+                    guess = userButtons[row, (col + 1)];
+                    point = row + "," + (col + 1);
+                    array[counterPointsFound] = point;//since u added a new point
+                    counterPointsFound++;//another point found
+
+                    if (!(guess.Content).ToString().Equals("ImgShip"))
+                    {
+
+                        //Change_Player();
+                        //Reset_Timer();
+                        //supposed to get out of the method
+                        //image to x
+                    }
+                    else
+                    {
+                        //if still here will check the left
+                        if (possibleToCheckLeft)
+                        {
+                            guess = userButtons[row, (col - 1)];
+                            point = row + "," + (col - 1); 
+                            array[counterPointsFound] = point;//since u added a new point
+                            counterPointsFound++;//another point found
+
+                            if (!(guess.Content).ToString().Equals("ImgShip"))
+                            {
+
+                                //Change_Player();
+                                //Reset_Timer();
+                                //supposed to get out of the method
+                                //image to x
+                            }
+                            else
+                            {
+                                //show the ship etc.
+                            }
+                        }//end possible to check left
+                    }//if image was found on the right
+                }//possible to check right
+                else
+                {
+                    //will check left only 
+                    //no need to do ifPossibleTocheckLeft
 
 
-            }//end else of if found initially
-        }//end computerPlayLevel2
+                    guess = userButtons[row, (col - 1)];
+                    point = row + "," + ((col - 1)); //ask
+                    array[counterPointsFound] = point;//since u added a new point
+                    counterPointsFound++;//another point found
 
-      
+                    if (!(guess.Content).ToString().Equals("ImgShip"))
+                    {
 
-    
+                        //Change_Player();
+                        //Reset_Timer();
+                        //supposed to get out of the method
+                        //image to x
+                    }
+                    else
+                    {
+                        //show the ship etc.
+                    }
 
+                }//end if can check left
+            }//end else of if found initially(only if found in the initiale point, all this will happened)
+        }//end computerPlayLevel3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}// End MainWindow class
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //auto generated IN SONYAS CODE
+        }
+        private void BtnComp_Click(object sender, RoutedEventArgs e)
+        {
+            //auto generated IN SONYA'S CODE
+        }
+    }// End MainWindow class
 
     public class Ship
     {
