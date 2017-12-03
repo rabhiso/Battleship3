@@ -28,7 +28,9 @@ namespace Battleship3
         private void startBtn_Click(object sender, RoutedEventArgs e)
         {
             Window game = new GameWindow();
-           
+
+            //Added by Farzaneh
+            this.Close();
            
             game.ShowDialog();
             

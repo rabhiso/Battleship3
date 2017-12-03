@@ -14,7 +14,7 @@
             <ColumnDefinition Width="76*"/>
         </Grid.ColumnDefinitions>
 
-            
+
 
         <Grid.Background>
             <ImageBrush ImageSource="sea4.png"
@@ -172,7 +172,7 @@
         </Grid>
 
         <!-- Fazie is taking care of this right? so I dont need to define names or methods?-->
-        
+
         <Grid x:Name="userGrid" HorizontalAlignment="Left" Height="200" Margin="0,29,0,0" VerticalAlignment="Top" Width="200" Grid.ColumnSpan="2" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20" />
@@ -199,115 +199,116 @@
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="0" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="1" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="2" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="3" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="4" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="5" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="6" BorderBrush="DarkBlue" Click="Button_Click"/>
-            <Button Grid.Column="6" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="6" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="7" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="8" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="0" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="1" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="2" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="3" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="4" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="5" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="6" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="7" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="8" Grid.Row="9" BorderBrush="DarkBlue"/>
-            <Button Grid.Column="9" Grid.Row="9" BorderBrush="DarkBlue"/>
+            <Button Grid.Column="0" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="0" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click" />
+            <Button Grid.Column="5" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="1" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="2" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="3" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="4" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="5" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="6" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="7" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="8" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="0" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="1" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="2" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="3" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="4" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="5" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="6" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="7" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="8" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
+            <Button Grid.Column="9" Grid.Row="9" BorderBrush="DarkBlue" Click="BtnUser_Click"/>
         </Grid>
         <Label Content="Level" HorizontalAlignment="Left" Margin="351,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.3,0.417" FontFamily="Comic Sans MS" BorderBrush="Transparent" FontSize="18" Height="35" Width="53"/>
         <Label Content="Timer" HorizontalAlignment="Left" Margin="351,141,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="18" Height="37" Width="60"/>
-        <Label x:Name="Time_Lbl" Content="8" HorizontalAlignment="Left" Margin="375,160,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" Height="27" Width="17"/>
+        <Label x:Name="Time_Lbl" Content="8" HorizontalAlignment="Left" Margin="368,183,0,0" VerticalAlignment="Top" FontFamily="Comic Sans MS" Height="27" Width="22"/>
         <Button x:Name="Time_plus_Btn" Content="+" HorizontalAlignment="Left" Margin="417,188,0,0" VerticalAlignment="Top" Width="24" Height="21" RenderTransformOrigin="1.599,0.083" FontFamily="Comic Sans MS" BorderBrush="Transparent" />
         <Button x:Name="Time_minus_Btn" Content="-" HorizontalAlignment="Left" Margin="318,188,0,0" VerticalAlignment="Top" Width="23" Height="21"/>
         <Button x:Name="Save_Btn" Content="Save" HorizontalAlignment="Left" Margin="266,246,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS" BorderBrush="Transparent" Height="21"/>
-        <Button x:Name="Load_Btn" Content="Load" HorizontalAlignment="Left" Margin="417,246,0,0" VerticalAlignment="Top" Width="75" FontFamily="Comic Sans MS" BorderBrush="Transparent" Height="21"/>
+        <Button x:Name="Load_Btn" Content="Previous Game" HorizontalAlignment="Left" Margin="417,246,0,0" VerticalAlignment="Top" Width="99" FontFamily="Comic Sans MS" BorderBrush="Transparent" Height="21"/>
         <Image x:Name="ImgShip" Margin="-71,-224,570,693" Source="lego-square.png" Stretch="Fill" RenderTransformOrigin="-3.291,-0.265"/>
         <Image x:Name="ImgShipHit" Margin="-155,-224,634,698" Source="ship-hit.png" Stretch="Fill"/>
         <Image x:Name="ImgShipMiss" Margin="-238,-224,717,690" Source="ship-missed.png" Stretch="Fill"/>
