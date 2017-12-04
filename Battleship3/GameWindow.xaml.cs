@@ -74,7 +74,6 @@ namespace Battleship3
             initialSetUps();
             Music.PlayBackgroundMusic();
             userSetUps();
-            start_Game();
         }
 
 
@@ -657,8 +656,9 @@ namespace Battleship3
         //@author Farzaneh
         //@version November 26, 2017
 
-        private void start_Game() {
-            
+        private void Start_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
             //Generate a random number to choose the player who starts the game.
             Random random = new Random();
             int turn = random.Next(0, 10) % 2;
@@ -679,7 +679,9 @@ namespace Battleship3
             {
                 initialTime = time;
             }
-           
+
+            Start_Btn.IsEnabled = false;
+            Display_Btn.IsEnabled = false;
             Time_plus_Btn.IsEnabled = false;
             Time_minus_Btn.IsEnabled = false;
             Load_Btn.IsEnabled = false;
@@ -709,10 +711,13 @@ namespace Battleship3
         private void Reset_Timer()
         {
             time = initialTime + 1;
-            timer.Start();
-             
-                /////timer.IsEnabled = false;
-          }// end resetTimer
+            if (!(bool)Start_Btn.IsEnabled)
+            {
+                timer.Start();
+            }
+            else
+                timer.IsEnabled = false;
+        }// end resetTimer
 
 
         //@author Farzaneh
@@ -761,12 +766,11 @@ namespace Battleship3
         private void BtnComp_Click(object sender, RoutedEventArgs e)
         {
             Button btn = (Button)sender;
-           
+            if (!(bool)Start_Btn.IsEnabled)
+            {
                 btn.IsEnabled = false;
                 if (!(btn.Content.ToString().Equals("noShip")))
                 {
-
-
                     counter--;
                     Set_Image(btn, "ship-hit.png");
                     Reset_Timer();
@@ -785,6 +789,7 @@ namespace Battleship3
                     Reset_Timer();
                     Change_Player();
                 }
+            }
         }//end BtnComp_Click
 
 
@@ -937,7 +942,10 @@ namespace Battleship3
             start.ShowDialog();
          }// End endGame()
 
-        
+        private void Display_Btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }// End MainWindow class
 
     public class Ship
