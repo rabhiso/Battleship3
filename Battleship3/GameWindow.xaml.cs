@@ -90,12 +90,7 @@ namespace Battleship3
         }
         // create ships and place them randomly inside computer player grid
         private void randomSetupComputerPlayer()
-        {
-
-            Button[] computerShips = new Button[20];
-            int computerShipCtr = 0;
-
-
+        { 
             Random random = new Random();
 
             int[] shipSizes = new int[] { 2, 3, 4, 5, 6 };
@@ -143,9 +138,7 @@ namespace Battleship3
                     // now we can place the ship 
                     for (int j = 0; j < size; j++)
                     {
-                        computerShips[computerShipCtr] = (Button)computerGrid.Children[index + j];
-                        computerShipCtr++;
-                        ((Button)computerGrid.Children[index + j]).Content = "";
+                        ((Button)computerGrid.Children[index + j]).Content = shipName;
                     }
                 }
                 else
